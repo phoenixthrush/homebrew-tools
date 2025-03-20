@@ -8,14 +8,18 @@ Or `brew tap phoenixthrush/homebrew-tools` and then `brew install <formula>`.
 
 Or, in a `brew bundle` `Brewfile`:
 
-```ruby
+```shell
 tap "phoenixthrush/homebrew-tools"
 brew "<formula>"
 ```
 
 ## Available Packages
 
-- `filius`: Filius is a network simulator for educational purpose
+- `filius`: Filius is a network simulator for educational purposes.
+
+    ```shell
+    brew install filius --HEAD
+    ```
 
 ## Documentation
 
