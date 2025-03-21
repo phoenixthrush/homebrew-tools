@@ -4,7 +4,11 @@ class Filius < Formula
   head "https://gitlab.com/filius1/filius.git", branch: "master"
   license any_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
 
-  depends_on "java"
+  # hope it works lol
+  unless system("which java > /dev/null 2>&1")
+    depends_on "java"
+  end
+
   depends_on "maven"
 
   def install
