@@ -18,7 +18,13 @@ brew "<formula>"
 - `filius`: Filius is a network simulator for educational purposes.
 
     ```shell
-    brew install filius --HEAD
+    brew install --HEAD --formula filius
+    ```
+
+- `tcc`: Tiny C Compiler for x86, x86-64, and ARM.
+
+    ```shell
+    brew install --HEAD --formula filius
     ```
 
 ## Documentation
