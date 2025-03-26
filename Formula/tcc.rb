@@ -19,13 +19,10 @@ class Tcc < Formula
       --enable-cross
     ]
 
-    args << "--cc=#{ENV.cc}" if build.head?
-
     ENV.deparallelize
-    system "./configure", *args
-
+    system "./configure"  # fix c compiler set to ../../super/cc
     system "make"
-    system "make test"
+    system "make", "test"
     system "make", "install"
   end
 end
