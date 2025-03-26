@@ -24,7 +24,8 @@ brew "<formula>"
 - `tcc`: Tiny C Compiler for x86, x86-64, and ARM.
 
     ```shell
-    brew install --HEAD --formula filius
+    # tcc already exists in homebrew-core
+    brew install --HEAD --formula phoenixthrush/homebrew-tools/tcc
     ```
 
 ## Documentation
