@@ -20,7 +20,8 @@ class Tcc < Formula
     ]
 
     ENV.deparallelize
-    system "./configure"  # fix c compiler set to ../../super/cc
+    system "./configure"
+    inreplace "config.mak", "../../super/cc", "clang"
     system "make"
     system "make", "test"
     system "make", "install"
