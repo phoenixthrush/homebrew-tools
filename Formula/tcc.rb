@@ -28,7 +28,15 @@ class Tcc < Formula
     # system "make", "test"
     # system "make", "install"
 
-    bin.install Dir["tcc", "*-tcc"]
+    # bin.install Dir["tcc", "*-tcc"]
+
+    (bin/"tcc").write <<~EOS
+      #!/bin/bash
+      export LIBRARY_PATH="#{opt_lib}/tcc"
+      exec "#{libexec}/tcc-bin" "$@"
+    EOS
+    chmod 0755, bin/"tcc"
+
     (lib/"tcc").install Dir["libtcc1.a", "runmain.o", "bt-exe.o", "bt-log.o", "bcheck.o", "*-libtcc1.a"]
     (lib/"tcc/include").install Dir["include/*.h", "tcclib.h"]
     lib.install Dir["libtcc.a", "*.so"]
@@ -39,6 +47,8 @@ class Tcc < Formula
       (lib/"tcc/win32/lib").install Dir["win32/lib/*.def", "*-win32-libtcc1.a", "*-wince-libtcc1.a"]
       (lib/"tcc/win32/include").install Dir["win32/include/*", "include/*.h", "tcclib.h"]
     end
+
+    libexec.install "tcc" => "tcc-bin"
 
     test do
       (testpath/"test.c").write <<~C
@@ -53,16 +63,16 @@ class Tcc < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      To use tcc, you may need to set the following environment variables:
-
-        export LIBRARY_PATH="#{opt_lib}/tcc"
-
-      If you're using macOS, also consider adding this to your shell configuration file:
-      
-        echo 'export LIBRARY_PATH="#{opt_lib}/tcc"' >> ~/.zshrc
-        source ~/.zshrc
-    EOS
-  end
+  # def caveats
+  #  <<~EOS
+  #    To use tcc, you may need to set the following environment variables:
+  #
+  #      export LIBRARY_PATH="#{opt_lib}/tcc"
+  #
+  #    If you're using macOS, also consider adding this to your shell configuration file:
+  #    
+  #      echo 'export LIBRARY_PATH="#{opt_lib}/tcc"' >> ~/.zshrc
+  #      source ~/.zshrc
+  #  EOS
+  # end
 end
