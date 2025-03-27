@@ -39,6 +39,18 @@ class Tcc < Formula
       (lib/"tcc/win32/lib").install Dir["win32/lib/*.def", "*-win32-libtcc1.a", "*-wince-libtcc1.a"]
       (lib/"tcc/win32/include").install Dir["win32/include/*", "include/*.h", "tcclib.h"]
     end
+
+    test do
+      (testpath/"test.c").write <<~C
+        #include <stdio.h>
+        int main()
+        {
+          puts("Hello, world!");
+          return 0;
+        }
+      C
+      assert_equal "Hello, world!\n", shell_output("#{bin}/tcc -run test.c")
+    end
   end
 
   def caveats
