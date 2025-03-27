@@ -19,7 +19,7 @@ class Filius < Formula
 
     # TODO: this currently suppresses stdout completely, including the help section...
     (bin/"filius").write <<~EOS
-      #!/bin/bash
+      #!/usr/bin/env bash
       exec java -jar #{libexec}/target/filius.jar "$@" > /dev/null
     EOS
   end

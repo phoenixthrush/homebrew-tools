@@ -31,7 +31,7 @@ class Tcc < Formula
     # bin.install Dir["tcc", "*-tcc"]
 
     (bin/"tcc").write <<~EOS
-      #!/bin/bash
+      #!/usr/bin/env bash
       export LIBRARY_PATH="#{opt_lib}/tcc"
       exec "#{libexec}/tcc-bin" "$@"
     EOS

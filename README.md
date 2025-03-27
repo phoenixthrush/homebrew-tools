@@ -15,17 +15,23 @@ brew "<formula>"
 
 ## Available Packages
 
+- `tcc`: Tiny C Compiler for x86, x86-64, and ARM.
+
+    ```shell
+    # tcc already exists in homebrew-core
+    brew install --HEAD --formula phoenixthrush/homebrew-tools/tcc
+    ```
+
 - `filius`: Filius is a network simulator for educational purposes.
 
     ```shell
     brew install --HEAD --formula filius
     ```
 
-- `tcc`: Tiny C Compiler for x86, x86-64, and ARM.
+- `johnny`: Johnny is a simulator of a simple (virtual) von-Neumann Computer.
 
     ```shell
-    # tcc already exists in homebrew-core
-    brew install --HEAD --formula phoenixthrush/homebrew-tools/tcc
+    brew install --HEAD --formula johnny
     ```
 
 ## Documentation
