@@ -29,6 +29,12 @@ cask "feishin" do
   auto_updates true
   app "Feishin.app"
 
+  postflight do
+    system_command "xattr",
+                   args: ["-rd", "com.apple.quarantine", "#{appdir}/Feishin.app"],
+                   sudo: false
+  end
+
   zap trash: [
     "~/Library/Application Support/feishin",
     "~/Library/Caches/feishin", 
