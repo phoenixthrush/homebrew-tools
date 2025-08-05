@@ -34,6 +34,12 @@ brew "<formula>"
     brew install --HEAD --formula johnny
     ```
 
+- `feishin`: A modern self-hosted music player.
+
+    ```shell
+    brew install --cask feishin
+    ```
+
 ## Documentation
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
